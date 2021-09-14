@@ -1,4 +1,5 @@
 class Shop < ApplicationRecord
+
   has_many :items, :reviews
   has_many :orders, through: :items
   
@@ -16,4 +17,5 @@ class Shop < ApplicationRecord
 
   # Photo must be present
   validates :photo, presence: true
+  
 end
