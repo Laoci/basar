@@ -10,17 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_09_14_090309) do
-=======
 ActiveRecord::Schema.define(version: 2021_09_14_095554) do
->>>>>>> a5d9bcf191442356832a90e44a0b8a76e5021eb1
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
   create_table "item_orders", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "item_id", null: false
@@ -30,7 +24,6 @@ ActiveRecord::Schema.define(version: 2021_09_14_095554) do
     t.index ["order_id"], name: "index_item_orders_on_order_id"
   end
 
->>>>>>> a5d9bcf191442356832a90e44a0b8a76e5021eb1
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -39,8 +32,6 @@ ActiveRecord::Schema.define(version: 2021_09_14_095554) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-<<<<<<< HEAD
-=======
 
   create_table "orders", force: :cascade do |t|
     t.boolean "delivered"
@@ -60,7 +51,6 @@ ActiveRecord::Schema.define(version: 2021_09_14_095554) do
     t.index ["shop_id"], name: "index_reviews_on_shop_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
->>>>>>> a5d9bcf191442356832a90e44a0b8a76e5021eb1
 
   create_table "shops", force: :cascade do |t|
     t.string "name"
