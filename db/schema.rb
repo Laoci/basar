@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_094506) do
+ActiveRecord::Schema.define(version: 2021_09_14_095554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "item", force: :cascade do |t|
+  create_table "item_orders", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_item_orders_on_item_id"
+    t.index ["order_id"], name: "index_item_orders_on_order_id"
+  end
+
+  create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.integer "quantity"
@@ -30,6 +39,17 @@ ActiveRecord::Schema.define(version: 2021_09_14_094506) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.string "content"
+    t.bigint "shop_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_reviews_on_shop_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -56,5 +76,9 @@ ActiveRecord::Schema.define(version: 2021_09_14_094506) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "item_orders", "items"
+  add_foreign_key "item_orders", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "shops"
+  add_foreign_key "reviews", "users"
 end
