@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_080850) do
     t.integer "price"
     t.integer "quantity"
     t.string "photo"
+  end
 
   create_table "shops", force: :cascade do |t|
     t.string "name"
