@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :orders
+  validates :username, presence: true, length: { minimum: 3 }
+  validates :email, presence: true, format: { with: /[a-z0-9._]{3,}@[a-z0-9.]{5,}/ }
+  validates :admin, presence: true
 end
