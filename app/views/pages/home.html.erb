@@ -1,14 +1,12 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/herobanner.jpg);">
+<div class="banner" style="background-image: url(/herobanner.jpg);">
   <div class="container">
-
     <%= simple_form_for :search, url: '/results', method: :get do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control inte3ger required" type="text" name="postal_code" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat btn-primary">
-          <i class="fas fa-search "></i> Search
-        </button>
+        <input class="form-control integer required" type="text" name="postal_code" id="search_query" placeholder="Enter Your Postal Code" />
+          <button name="button" type="submit" class="btn btn-primary btn-flat">
+            <i class="fas fa-search "></i> Search
+          </button>
       </div>
     <% end %>
-
   </div>
 </div>
