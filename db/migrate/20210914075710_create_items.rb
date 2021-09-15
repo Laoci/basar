@@ -2,7 +2,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
   def change
     create_table :items do |t|
       t.string :name
-      t.integer :price
+      t.decimal :price
       t.integer :quantity
       t.string :photo
       # t.references :shop, foreign_key: true
