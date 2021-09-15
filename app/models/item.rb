@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  has_many :item_orders
+  belongs_to :shop
+
   # for name, it must be unique, it cannot be empty and minimum length is 3 char.
   validates :name, presence: true, length: { minimum: 3 }
   validates :name, uniqueness: true
