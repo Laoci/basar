@@ -1,0 +1,19 @@
+
+
+<div class="container">
+  <% @shops.each do |shop| %>
+    <div>
+      <div class="card-trip">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= shop.name %></h2>
+            <p><%= shop.address %> - <%= shop.phone_number %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+</div>
