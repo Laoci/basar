@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.integer :price
       t.integer :quantity
       t.string :photo
+      # t.references :shop, foreign_key: true
 
       t.timestamps
     end
