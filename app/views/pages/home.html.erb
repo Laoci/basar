@@ -1,10 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= simple_form_for :search, url: '/results', method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control inte3ger required" type="text" name="postal_code" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/herobanner.jpg);">
+  <div class="container">
+
+    <%= simple_form_for :search, url: '/results', method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control inte3ger required" type="text" name="postal_code" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat btn-primary">
+          <i class="fas fa-search "></i> Search
+        </button>
+      </div>
+    <% end %>
+
   </div>
-<% end %>
+</div>
