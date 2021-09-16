@@ -13,7 +13,7 @@ class ShopsController < ApplicationController
 
     # No results, show notify
     if @shops.count.zero?
-      redirect_to '/', notice: "No results found for '#{postal_code}'"
+      redirect_to '/', alert: "No results found for '#{postal_code}'"
       return
     end
   end
