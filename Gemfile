@@ -66,3 +66,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Dependencies
 gem 'cloudinary', '~> 1.16.0'
 gem 'devise'
+gem 'pundit'
+gem 'pg_search', '~> 2.3.0'

@@ -1,12 +1,46 @@
-<div class="banner" style="background-image: url(/herobanner.jpg);">
+<div class="banner" style="background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80')">
   <div class="container">
     <%= simple_form_for :search, url: '/results', method: :get do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control integer required" type="text" name="postal_code" id="search_query" placeholder="Enter Your Postal Code" />
-          <button name="button" type="submit" class="btn btn-primary btn-flat">
-            <i class="fas fa-search "></i> Search
+        <input class="form-control" type="text" name="query" id="query" placeholder="Search Shops (Name, Product, Postal Code...)" />
+          <button type="submit" class="btn btn-info btn-flat">
+            <i class="fas fa-search "></i> Search it!
           </button>
       </div>
+      <% if flash[:alert].present? %>
+        <p class="alert alert-main"><%= alert %></p>
+      <% end %>
     <% end %>
+  </div>
+</div>
+<div class="container-fluid cards-row">
+  <div class="card-deck">
+    <div class="d-flex align-self-stretch">
+      <div class="card-how">
+          <img class="card-img-top" src="https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" alt="Search fresh food logo">
+          <div class="card-body">
+            <h5 class="card-title">Search Fresh Produce</h5>
+            <p class="card-text">Enter your postal code to find fresh food produce from grocers nearby!</p>
+            <p class="card-text"><small class="text-muted">Fresh Food</small></p>
+          </div>
+        </div>
+        <div class="card-how">
+          <img class="card-img-top" src="https://images.unsplash.com/photo-1606787504667-961f789e78e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Find Fresh Produce</h5>
+            <p class="card-text">Add the fresh produce to your cart and log-in to checkout </p>
+            <p class="card-text"><small class="text-muted">Fast Food</small></p>
+          </div>
+        </div>
+        <div class="card-how">
+          <img class="card-img-top" src="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" alt="Fresh food delivery">
+          <div class="card-body">
+            <h5 class="card-title">Buy Fresh Produce</h5>
+            <p class="card-text">Make secure payments with your credit card (powered by Stripe)</p>
+            <p class="card-text"><small class="text-muted">Home Food</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

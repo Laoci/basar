@@ -1,10 +1,16 @@
 .alert {
+  color: rgb(209, 39, 39);
+  padding: 0px;
+  margin: 1px;
+}
+
+.alert-main {
   padding: 16px 24px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background: rgb(255, 116, 116);
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  background: rgb(74, 174, 52);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   margin: 8px;
 }
