@@ -2,11 +2,14 @@
   <div class="container">
     <%= simple_form_for :search, url: '/results', method: :get do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control integer required" type="text" name="postal_code" id="search_query" placeholder="Enter Your Postal Code" />
-          <button name="button" type="submit" class="btn btn-primary btn-flat">
-            <i class="fas fa-search "></i> Search
+        <input class="form-control" type="text" name="query" id="query" placeholder="Search Shops (Name, Product, Postal Code...)" />
+          <button type="submit" class="btn btn-info btn-flat">
+            <i class="fas fa-search "></i> Search it!
           </button>
       </div>
+      <% if flash[:alert].present? %>
+        <p class="alert alert-main"><%= alert %></p>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -18,8 +18,8 @@
 
     <body>
         <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-            <%= link_to "", class: "navbar-brand" do %>
-            <%= image_tag "https://dye1fo42o13sl.cloudfront.net/logos/04212021/SVGMercato/mercato-2color.svg" %>
+            <%= link_to root_path, class: "navbar-brand" do %>
+              <%= image_tag "https://dye1fo42o13sl.cloudfront.net/logos/04212021/SVGMercato/mercato-2color.svg" %>
             <% end %>
 
             <button
@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <%= link_to "Home", "", class: "nav-link" %>
+                        <%= link_to "Home", root_path, class: "nav-link" %>
                     </li>
                     <%- if current_user %>
                       <li class="nav-item dropdown">
@@ -59,10 +59,5 @@
             </div>
         </div>
         <%= yield %>
-          <div class="card-alert text-center">
-            <div class="card-header text-muted">
-              <p class="alert"><%= alert %></p>
-            </div>
-          </div>
     </body>
 </html>
