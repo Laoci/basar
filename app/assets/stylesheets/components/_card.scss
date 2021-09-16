@@ -76,12 +76,13 @@
 }
 
 .card-how {
-  margin: 8px;
+  margin: 16px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 16px;
 }
 
 .card-how h5 {
@@ -92,5 +93,5 @@
 .card-how img {
   height: 100%;
   width: 120px;
-  object-fit: fill;
+  object-fit: cover;
 }
