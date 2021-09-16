@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  # before_action :authenticate_user!, except: :new
+
   def index
     postal_code = params[:postal_code]
     @shops = Shop.where(postal_code: postal_code)

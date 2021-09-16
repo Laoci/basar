@@ -1,3 +1,10 @@
 <h1>Shopping Cart</h1>
-<h3>1x <%= @item.name %> - $<%=@item.price %></h2>
-<%= link_to "Back to Shop",  results_path(postal_code: @item.shop.postal_code)%>
+
+<ol>
+    <li> <%= @item_order.item.name %> - $<%=@item_order.item.price %>  </li>
+    <input id="item-count" type="number">
+    <%= link_to "Back to Shop",  results_path(postal_code: @item.shop.postal_code)%>
+    <button id="add-to-cart"
+            class="btn btn-primary"
+            data-item-id=<%= @item.id %> > Add to Cart </button>
+</ol>
