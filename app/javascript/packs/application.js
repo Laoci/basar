@@ -27,6 +27,6 @@ import { showCart } from '../plugins/show_cart';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initCart();
+  initCart();
   showCart();
 });

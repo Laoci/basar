@@ -1,7 +1,9 @@
-<h1>Your Shopping cart</h1>
+<h1>Your Shopping cart!</h1>
 
 <ul class="cart-list">
-  <%# inject the cart with JS!! %>
+  <% @cart_objects.each do |item_hash| %>
+    <p> <%= item_hash[:item_name] %> - <%= item_hash[:item_count] %>x total cost = $<%= item_hash[:item_price] %> </p>
+  <% end %>
 </ul>
 
 <button class="btn btn-primary"> Confirm Order</button>
