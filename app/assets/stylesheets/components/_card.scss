@@ -74,3 +74,23 @@
 .card-alert {
   padding: 0px;
 }
+
+.card-how {
+  margin: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-how h5 {
+  color: rgb(19, 87, 19);
+  font-weight: bold;
+}
+
+.card-how img {
+  height: 100%;
+  width: 120px;
+  object-fit: fill;
+}
