@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :item_orders
+  has_many :orders, through: :item_orders
   belongs_to :shop
 
   # for name, it must be unique, it cannot be empty and minimum length is 3 char.
