@@ -14,7 +14,7 @@ class ShopsController < ApplicationController
       return nil
     end
 
-    if @shops.empty?
+    if @shops.empty? || query_value.empty?
       redirect_to root_path, alert: alert
       return nil
     end
