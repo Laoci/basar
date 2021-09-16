@@ -17,4 +17,17 @@ class ShopsController < ApplicationController
       return
     end
   end
+
+  def new
+    @item = Item.find(params[:item_id])
+    @item_order = ItemOrder.new
+  end
+
+  def create
+    @item_order = ItemOrder.new
+    @item = Item.find(params[:item_id])
+    @item_order.item = @item
+    @item_order.save
+    render :new
+  end
 end

@@ -22,7 +22,9 @@
                 <p>$<%= item.price %> - <strong><%= item.quantity %> units left</strong></p>
               </div>
             </div>
-            <button type="button" class="btn btn-primary mx-3 my-1">Add to cart</button>
+            <div class="mx-3 my-2">
+              <%= button_to "Add to Cart", action: "create", item_id: item.id %>
+            </div>
           </div>
         <% end %>
       </div>
