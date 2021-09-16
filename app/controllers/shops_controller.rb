@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  # before_action :authenticate_user!, except: :new
+
   def index
     query_value = params[:query]
     alert = "Sorry... We can't find anything by #{query_value}"
@@ -16,5 +18,18 @@ class ShopsController < ApplicationController
       redirect_to root_path, alert: alert
       return nil
     end
+  end
+
+  def new
+    @item = Item.find(params[:item_id])
+    @item_order = ItemOrder.new
+  end
+
+  def create
+    @item_order = ItemOrder.new
+    @item = Item.find(params[:item_id])
+    @item_order.item = @item
+    @item_order.save
+    render :new
   end
 end
