@@ -18,8 +18,8 @@
 
     <body>
         <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-            <%= link_to "#", class: "navbar-brand" do %>
-            <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+            <%= link_to "", class: "navbar-brand" do %>
+            <%= image_tag "https://dye1fo42o13sl.cloudfront.net/logos/04212021/SVGMercato/mercato-2color.svg" %>
             <% end %>
 
             <button
@@ -36,25 +36,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <%= link_to "Home", "#", class: "nav-link" %>
+                        <%= link_to "Home", "", class: "nav-link" %>
                     </li>
-                    <li class="nav-item">
-                        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-                    </li>
-                    <li class="nav-item dropdown">
+                    <%- if current_user %>
+                      <li class="nav-item dropdown">
                         <%= image_tag "https://source.unsplash.com/random/100x100", class:
                         "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" },
                         'aria-haspopup': true, 'aria-expanded': false %>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <%= link_to "Action", "#", class: "dropdown-item" %>
-                            <%= link_to "Another action", "#", class: "dropdown-item" %>
+                            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                         </div>
-                    </li>
+                      </li>
+                    <% else %>
+                      <li class="nav-item">
+                        <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+                      </li>
+                    <% end %>
                 </ul>
             </div>
         </div>
         <%= yield %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
     </body>
 </html>
