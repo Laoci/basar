@@ -2,7 +2,7 @@
   <% @shops.each do |shop| %>
     <div class="d-flex">
       <div class="card-shop">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <img src="https://source.unsplash.com/1600x900/?shopfront" />
         <div class="card-shop-infos">
           <div>
             <h2><%= shop.name %></h2>
@@ -14,7 +14,7 @@
         <% shop.items.each do |item| %>
           <div>
             <div class="card-product mx-3">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <img src="https://source.unsplash.com/1600x900/?food" />
               <div class="card-product-infos">
                 <h2><%= item.name %></h2>
                 <p>$<%= item.price %> - <strong><%= item.quantity %> units left</strong></p>
