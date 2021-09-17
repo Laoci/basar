@@ -5,7 +5,7 @@ class Item < ApplicationRecord
 
   # for name, it must be unique, it cannot be empty and minimum length is 3 char.
   validates :name, presence: true, length: { minimum: 3 }
-  validates :name, uniqueness: true
+  validates :name, uniqueness: false
 
   # for price, it cannot be empty and it must be numbers and greater than 0.
   monetize :price_cents
