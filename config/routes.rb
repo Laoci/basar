@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   # order routes for payment
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
-
-  # review route
-  resources :reviews, only: [:new, :create]
   end
+
+  # for review route
+  resources :reviews, only: [:new, :create]
+
 end

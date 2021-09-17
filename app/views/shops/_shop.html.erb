@@ -2,10 +2,10 @@
   <div class="card-shop">
     <img src="https://source.unsplash.com/1600x900/?shopfront" />
     <div class="card-shop-infos">
-      <div class="ratings">
-        <span id="rateMe1"></span>
+      <div class="review">
           <h2><%= shop.name %></h2>
           <p><%= shop.address %> - <%= shop.phone_number %></p>
+          <%= link_to "reviews", reviews_path, controller: "review", action: "create", shop_id: shop.id %>
       </div>
     </div>
   </div>
