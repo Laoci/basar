@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="col-3">
   <div class="card-shop">
     <img src="https://source.unsplash.com/1600x900/?shopfront" />
     <div class="card-shop-infos">
@@ -8,5 +8,10 @@
           <p><%= shop.address %> - <%= shop.phone_number %></p>
       </div>
     </div>
+  </div>
+</div>
+<div class="col-9">
+  <div class="card-product-container d-flex">
+    <%= render shop.items %>
   </div>
 </div>
