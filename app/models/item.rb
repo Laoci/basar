@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :item_orders
+  has_many :orders, through: :item_orders
   belongs_to :shop
 
   # for name, it must be unique, it cannot be empty and minimum length is 3 char.
@@ -7,9 +8,10 @@ class Item < ApplicationRecord
   validates :name, uniqueness: true
 
   # for price, it cannot be empty and it must be numbers and greater than 0.
-  validates :price, presence: true
-  validates :price, numericality: true
-  validates :price, numericality: { greater_than: 0 }
+  monetize :price_cents
+  validates :price_cents, presence: true
+  validates :price_cents, numericality: true
+  validates :price_cents, numericality: { greater_than: 0 }
 
   # for quantity, cannot be empty, it must be a number but can accept 0
   validates :quantity, presence: true

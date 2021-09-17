@@ -1,9 +1,11 @@
 <h1>Shopping Cart</h1>
 
 <ol>
-    <li> <%= @item_order.item.name %> - $<%=@item_order.item.price %>  </li>
+    <li> <%= @item.name %> - <%= humanized_money_with_symbol(@item.price) %>  </li>
     <input id="item-count" type="number">
-    <%= link_to "Back to Shop",  results_path(query: @item.shop.postal_code)%>
+
+    <%= link_to "Back to Shop",  results_path(query: @item.shop.name)%>
+
     <button id="add-to-cart"
             class="btn btn-primary"
             data-item-id=<%= @item.id %>

@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   post "my_cart", to: "carts#show"
   # delete "cart", to: "carts#destroy"
   # delete "cart", to: "shops#destroy"
+
+  # order routes for payment
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
 end
