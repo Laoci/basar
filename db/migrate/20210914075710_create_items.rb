@@ -2,10 +2,9 @@ class CreateItems < ActiveRecord::Migration[6.1]
   def change
     create_table :items do |t|
       t.string :name
-      t.decimal :price
+      t.monetize :price, currency: { present: false }
       t.integer :quantity
       t.string :photo
-      # t.references :shop, foreign_key: true
 
       t.timestamps
     end
