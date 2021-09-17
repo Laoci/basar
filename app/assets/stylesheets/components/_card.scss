@@ -40,8 +40,11 @@
   width: 40px;
 }
 
+.card-product-container {
+  overflow: scroll;
+}
+
 .card-product {
-  overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -96,23 +99,4 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
-}
-
-.carousel-indicators1 {
-    right: 0;
-    bottom: -30px;
-
-	li {
-		// background-color: red;
-		outline: 1px solid lightgray;
-	}
-
-	.active {
-		// background-color: blue;
-		outline: 1px solid black;
-	}
-}
-
-img {
-	height: 200px;
 }
