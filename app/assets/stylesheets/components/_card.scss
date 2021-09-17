@@ -1,7 +1,9 @@
 .card-shop {
+  width: 250px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 16px;
 }
 
 .card-shop > img {
@@ -19,12 +21,12 @@
 .card-shop p {
   font-size: 12px;
   opacity: .7;
-  margin: 0;
+  margin: 32px;
 }
 
 
 .card-shop .card-shop-infos {
-  padding: 16px;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -94,4 +96,23 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
+}
+
+.carousel-indicators1 {
+    right: 0;
+    bottom: -30px;
+
+	li {
+		// background-color: red;
+		outline: 1px solid lightgray;
+	}
+
+	.active {
+		// background-color: blue;
+		outline: 1px solid black;
+	}
+}
+
+img {
+	height: 200px;
 }

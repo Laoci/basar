@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # cart routes
   get "cart", to: "shops#new"
   post "cart", to: "shops#create"
-  get 'my_cart', to: "carts#show"
+  post "my_cart", to: "carts#show"
+  # delete "cart", to: "carts#destroy"
   # delete "cart", to: "shops#destroy"
 
   # order routes for payment

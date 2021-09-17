@@ -9,8 +9,8 @@ require 'faker'
 
 puts "Cleaning up databases"
 User.destroy_all
-Shop.destroy_all
 Item.destroy_all
+Shop.destroy_all
 
 puts "Creating users.."
 admin = User.create!(username: "admin", email: "admin@gmail.com", password: "admin123", address: "test", admin: true)
@@ -21,6 +21,7 @@ shop2 = Shop.create!(name: "shop 2", photo: "insert url", postal_code: 100002, a
 shop3 = Shop.create!(name: "shop 3", photo: "insert url", postal_code: 100003, address: "insert address", phone_number: "12345678" )
 
 puts "Creating items..."
+
 banana = Item.create!(name: "Banana", price_cents: 125, quantity: 3, photo: "insert url", shop: shop1)
 apple = Item.create!(name: "Apple", price_cents: 90, quantity: 3, photo: "insert url", shop: shop1)
 carrot = Item.create!(name: "Carrot", price_cents: 105, quantity: 3, photo: "insert url", shop: shop2)
