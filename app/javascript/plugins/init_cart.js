@@ -6,8 +6,10 @@ const initCart = () => {
   if (addToCartBtn) {
     addToCartBtn.addEventListener('click', () => {
       const itemId = addToCartBtn.dataset.itemId;
+      const itemName = addToCartBtn.dataset.itemName;
       const itemCount = document.querySelector('#item-count');
-      addToLocalStorage(itemId, itemCount.value);
+      addToLocalStorage(itemId, itemCount.value, itemName);
+      alert(`${itemCount.value} ${itemName} added!`)
     })
     // collect the number from the input
     // add the right item to localstorage

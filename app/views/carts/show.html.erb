@@ -1,9 +1,16 @@
-<h1>Your Shopping cart!</h1>
+<div class="container">
+<h1 class="m-3">Your Shopping cart!</h1>
 
-<ul class="cart-list">
+<ul class="cart-list m-3">
   <% @cart_objects.each do |item_hash| %>
-    <p> <%= item_hash[:item_name] %> - <%= item_hash[:item_count] %>x total cost = $<%= item_hash[:item_price] %> </p>
+  <div class="d-flex justify-content-between">
+    <li> <%= item_hash[:item_name] %> - <%= item_hash[:item_count] %>x total cost = $<%= item_hash[:item_price] %> </li>
+    <%# <button %>
+    <%# class="delete-item btn btn-warning btn-sm" %>
+    <%# >Delete this item</button> %>
+    <%#= button_to "Delete Item", action: "destroy", item_id: item_hash[:item_id] %>
+  </div>
   <% end %>
 </ul>
-
-<button class="btn btn-primary"> Confirm Order</button>
+<button class="btn btn-primary btn-lg m-3"> Confirm Order</button>
+</div>

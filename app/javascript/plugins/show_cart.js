@@ -16,4 +16,10 @@ const showCart = () => {
   }
 }
 
+// const deleteItem = () => {
+//   const deleteButtons = document.querySelectorAll(".delete-item");
+//   debugger
+//   console.log(deleteButtons)
+// }
+
 export { showCart }

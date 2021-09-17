@@ -6,5 +6,6 @@
     <%= link_to "Back to Shop",  results_path(query: @item.shop.postal_code)%>
     <button id="add-to-cart"
             class="btn btn-primary"
-            data-item-id=<%= @item.id %> > Add to Cart </button>
+            data-item-id=<%= @item.id %>
+            data-item-name=<%= @item.name %> > Add to Cart </button>
 </ol>
