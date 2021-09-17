@@ -11,6 +11,7 @@ puts "Cleaning up databases"
 User.destroy_all
 Item.destroy_all
 Shop.destroy_all
+Order.destroy_all
 
 puts "Creating users.."
 admin = User.create!(username: "admin", email: "admin@gmail.com", password: "admin123", address: "test", admin: true)
