@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_070338) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.decimal "price"
+    t.integer "price_cents", default: 0, null: false
     t.integer "quantity"
     t.string "photo"
     t.datetime "created_at", precision: 6, null: false
@@ -36,7 +36,9 @@ ActiveRecord::Schema.define(version: 2021_09_16_070338) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.boolean "delivered"
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

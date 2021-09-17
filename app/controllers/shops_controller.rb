@@ -14,7 +14,7 @@ class ShopsController < ApplicationController
       return nil
     end
 
-    if @shops.empty?
+    if @shops.empty? || query_value.to_s.empty?
       redirect_to root_path, alert: alert
       return nil
     end
@@ -22,14 +22,10 @@ class ShopsController < ApplicationController
 
   def new
     @item = Item.find(params[:item_id])
-    @item_order = ItemOrder.new
   end
 
   def create
-    @item_order = ItemOrder.new
     @item = Item.find(params[:item_id])
-    @item_order.item = @item
-    @item_order.save
     render :new
   end
 end

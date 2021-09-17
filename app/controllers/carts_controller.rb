@@ -17,4 +17,9 @@ class CartsController < ApplicationController
       format.html
     end
   end
+
+  def destroy
+    @item = Item.find(params[:item_id])
+    @item.destroy
+  end
 end
