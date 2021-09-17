@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   # for review route
-  resources :reviews, only: [:new, :create]
-
+  resources :shop, only: [] do
+    resources :reviews, only: [:new, :create]
+  end
 end
