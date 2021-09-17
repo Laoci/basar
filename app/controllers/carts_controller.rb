@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
+
   def show
 
      data = JSON.parse(request.body.read)

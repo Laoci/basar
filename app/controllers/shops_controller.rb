@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :new, :create]
   # before_action :authenticate_user!, except: :new
 
   def index
