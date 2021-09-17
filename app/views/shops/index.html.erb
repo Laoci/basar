@@ -1,48 +1,24 @@
-<div class="container d-flex">
-  <% @shops.each do |shop| %>
-    <div class="d-flex">
-      <div class="card-shop">
-        <img src="https://source.unsplash.com/1600x900/?shopfront" />
-        <div class="card-shop-infos">
-          <div>
-            <h2><%= shop.name %></h2>
-            <p><%= shop.address %> - <%= shop.phone_number %></p>
-          </div>
-        </div>
-      </div>
-  </div>
-	<div class="row">
-		<div class="d-flex col">
-			<!--Carousel Wrapper-->
-			<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
-				<!--Controls-->
-				<div class="controls-top float-right mx-2 my-3">
-					<a class="btn btn-outline-secondary prev" data-slide="prev" href="#multi-item-example"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-secondary next" data-slide="next" href="#multi-item-example"><i class="fa fa-chevron-right"></i></a>
-				</div><!--/.Controls-->
-				<h3 class="d-inline-block mx-3 my-3">Here are the available fresh produce! </h3>
-        <!--Slides-->
-				<div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-              <div class="d-flex">
-                <% shop.items.each do |item| %>
-                  <div>
-                    <div class="card-product mx-3">
-                      <img src="https://source.unsplash.com/800x450/?<%=item.name%>,fruit" />
-                      <div class="card-product-infos">
-                        <h2><%= item.name %></h2>
-                        <p>$<%= item.price %> - <strong><%= item.quantity %> units left</strong></p>
-                      </div>
-                    </div>
-                    <div class="mx-3 my-2">
-                      <%= button_to "Add to Cart", action: "create", item_id: item.id %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="container">
+  <%= render @shops %>
 </div>
+
+
+<script>
+$('.carousel.carousel-multi .carousel-item').each(function () {
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().attr("aria-hidden", "true").appendTo($(this));
+
+  if (next.next().length > 0) {
+    next.next().children(':first-child').clone().attr("aria-hidden", "true").appendTo($(this));
+  }
+  else {
+    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+  }
+});
+
+</script>
+
+<script src="js/addons/rating.js"></script>
