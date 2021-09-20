@@ -23,13 +23,12 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initCart } from '../plugins/init_cart';
-import { showCart } from '../plugins/show_cart';
+import { showCart, deleteItem } from '../plugins/show_cart';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initCart();
   showCart();
-  // deleteItem();
 });
 
 import { initStarRating } from '../plugins/init_star_rating';

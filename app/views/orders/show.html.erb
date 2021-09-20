@@ -10,14 +10,17 @@
             <th>Item</th>
             <th>Quantity</th>
             <th>Unit Price</th>
+            <th>Subtotal</th>
           </tr>
         </thead>
         <tbody>
           <% @order.items.each do |item| %>
+            <% item_quantity = JSON.parse(@order.detail)[item.id.to_s] %>
             <tr>
               <td><%= item.name %></td>
-              <td><%= 0 %></td>
+              <td><%= item_quantity %></td>
               <td><%= humanized_money_with_symbol(item.price) %></td>
+              <td><%= humanized_money_with_symbol(item.price * item_quantity) %></td>
             </tr>
           <% end %>
         <tbody>
