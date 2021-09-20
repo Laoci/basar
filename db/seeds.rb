@@ -17,7 +17,7 @@ puts "Creating users.."
 admin = User.create!(username: "admin", email: "admin@gmail.com", password: "admin123", address: "test", admin: true)
 
 puts "Creating 30 shops.."
-30.times do
+60.times do
   shop_name = Faker::Restaurant.name
   shop_photo = "insert url",
   postal_code = Faker::Number.number(digits: 6)
@@ -27,15 +27,29 @@ puts "Creating 30 shops.."
   shop = Shop.new(name: shop_name, photo: shop_photo, postal_code: postal_code, address: address, phone_number: phone_number)
   shop.save!
 
-  rand(10..20).times do
-    food = Faker::Food.vegetables
+  rand(3..6).times do
+    veg = Faker::Food.vegetables
     price = Faker::Number.between(from: 60, to: 1000)
     photo = "insert url"
     quantity = Faker::Number.between(from: 50, to: 300)
-    item = Item.new(name: food, price_cents: price, quantity: quantity, photo: photo, shop: shop)
+    item = Item.new(name: veg, price_cents: price, quantity: quantity, photo: photo, shop: shop)
 
     item.save!
+    rand(3..6).times do
+      spice = Faker::Food.spice
+      add_item = Item.new(name: spice, price_cents: price, quantity: quantity, photo: photo, shop: shop)
+
+      add_item.save!
+
+    rand(3..6).times do
+      ingredient = Faker::Food.ingredient
+      more_item = Item.new(name: ingredient, price_cents: price, quantity: quantity, photo: photo, shop: shop)
+
+      more_item.save!
+    end
+
   end
+end
 end
 # shop1 = Shop.create!(name: "shop 1", photo: "insert url", postal_code: 100001, address: "insert address", phone_number: "12345678" )
 # shop2 = Shop.create!(name: "shop 2", photo: "insert url", postal_code: 100002, address: "insert address", phone_number: "12345678" )
