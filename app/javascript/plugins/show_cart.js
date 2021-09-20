@@ -13,6 +13,8 @@ const showCart = () => {
         <div class="mb-3"> <p class="text-primary"> ${cartItem.itemId} <span class="text-muted"> ${cartItem.itemCount} </span>  </p>  </div>
       `
     })
+  } else {
+    cartList.innerHTML = "Your cart is empty."
   }
 }
 
