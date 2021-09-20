@@ -1,4 +1,5 @@
 import { csrfToken } from '@rails/ujs'
+import { showCart } from './show_cart.js'
 
 const initCart = () => {
   // whenever I click on add to cart
@@ -54,7 +55,8 @@ const initCart = () => {
       },
       body:  JSON.stringify(window.localStorage.cart)
     }).then( res => res.text() )
-      .then( html => document.body.innerHTML = html );
+      .then( html => document.body.innerHTML = html )
+      .then(showCart);
   })
 
 }
