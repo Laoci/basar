@@ -19,7 +19,7 @@
 <%= form_tag orders_path do %>
   <%= hidden_field_tag 'cart_objects', JSON.generate(@cart_objects) %>
   <% unless @cart_objects.empty? %>
-    <%= submit_tag 'Confirm Order', class:"btn btn-primary btn-lg m-3" %>\
+    <%= submit_tag 'Confirm Order', class:"btn btn-primary btn-lg m-3" %>
   <% end %>
 <% end %>
 <p class="alert-main">Please log in or sign up to proceed.</p>
