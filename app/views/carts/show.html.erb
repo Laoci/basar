@@ -1,20 +1,25 @@
 <div class="container">
 <h1 class="m-3">Your Shopping cart!</h1>
 
-<ul class="cart-list m-3">
-  <% @cart_objects.each do |item_hash| %>
-  <div class="d-flex justify-content-between">
-    <li> <%= item_hash[:item_name] %> - <%= item_hash[:item_count] %>x total cost = $<%= item_hash[:item_price] %> </li>
-    <%# <button %>
-    <%# class="delete-item btn btn-warning btn-sm" %>
-    <%# >Delete this item</button> %>
-    <%#= button_to "Delete Item", action: "destroy", item_id: item_hash[:item_id] %>
-  </div>
+<% if @cart_objects %>
+  <ul class="cart-list m-3">
+    <% @cart_objects.each do |item_hash| %>
+    <div class="d-flex justify-content-between">
+      <li> <%= item_hash[:item_name] %> - <%= item_hash[:item_count] %>x total cost = $<%= item_hash[:item_price] %> </li>
+      <%# <button %>
+      <%# class="delete-item btn btn-warning btn-sm" %>
+      <%# >Delete this item</button> %>
+      <%#= button_to "Delete Item", action: "destroy", item_id: item_hash[:item_id] %>
+    </div>
+    <% end %>
+  </ul>
+  <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'cart_objects', JSON.generate(@cart_objects) %>
+    <%= submit_tag 'Confirm Order', class:"btn btn-primary btn-lg m-3" %>
   <% end %>
-</ul>
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'cart_objects', JSON.generate(@cart_objects) %>
-  <%= submit_tag 'Confirm Order', class:"btn btn-primary btn-lg m-3" %>
+  <p class="alert-main">Please log in or sign up to proceed.</p>
+  </div>
+<% else %>
+  <p class="alert-main">You have no item in your cart. Search and add some!</p>
+  <%= link_to "Back to homepage", root_path, class: "btn btn-primary" %>
 <% end %>
-<p class="alert-main">Please log in or sign up to proceed.</p>
-</div>
