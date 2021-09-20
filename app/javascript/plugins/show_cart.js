@@ -11,7 +11,7 @@ const deleteFromCart = (itemId) => {
 }
 
 const showCart = () => {
-  console.log('showing car!');
+  // console.log('showing car!');
   const cartList = document.querySelector('.cart-list');
   if (cartList) {
 
