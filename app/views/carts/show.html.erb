@@ -1,25 +1,26 @@
 <div class="container">
 <h1 class="m-3">Your Shopping cart!</h1>
 
-<% if @cart_objects %>
-  <ul class="cart-list m-3">
-    <% @cart_objects.each do |item_hash| %>
-    <div class="d-flex justify-content-between">
-      <li> <%= item_hash[:item_name] %> - <%= item_hash[:item_count] %>x total cost = $<%= item_hash[:item_price] %> </li>
-      <%# <button %>
-      <%# class="delete-item btn btn-warning btn-sm" %>
-      <%# >Delete this item</button> %>
-      <%#= button_to "Delete Item", action: "destroy", item_id: item_hash[:item_id] %>
-    </div>
-    <% end %>
-  </ul>
-  <%= form_tag orders_path do %>
-    <%= hidden_field_tag 'cart_objects', JSON.generate(@cart_objects) %>
+<ul class="cart-list m-3">
+  <% if @cart_objects.empty? %>
+    <h4> There is nothing on your shopping cart yet. </h3>
+  <% else %>
+  <% @cart_objects.each do |item_hash| %>
+  <div class="d-flex justify-content-between">
+  <div class="d-flex m-4">
+    <li> <%= item_hash[:item_name] %> - <%= item_hash[:item_count] %>x total cost = $<%= item_hash[:item_price] %> </li>
+    <button data-item-id="<%= item_hash[:item_id] %>" class="delete-item btn btn-warning btn-sm ml-4">Delete this item</button>
+  </div>
+    <%#= button_to "Delete Item", action: "destroy", item_id: item_hash[:item_id] %>
+  </div>
+  <% end %>
+  <% end %>
+</ul>
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'cart_objects', JSON.generate(@cart_objects) %>
+  <% unless @cart_objects.empty? %>
     <%= submit_tag 'Confirm Order', class:"btn btn-primary btn-lg m-3" %>
   <% end %>
-  <p class="alert-main">Please log in or sign up to proceed.</p>
-  </div>
-<% else %>
-  <p class="alert-main">You have no item in your cart. Search and add some!</p>
-  <%= link_to "Back to homepage", root_path, class: "btn btn-primary" %>
 <% end %>
+<p class="alert-main">Please log in or sign up to proceed.</p>
+</div>
