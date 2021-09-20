@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.shop = @shop
     @review.user = current_user
     if @review.save
-      redirect_to shop_review_path
+      redirect_to results_path(query: @shop.name)
     else
       flash[:alert] = "Something went wrong."
       render :new
