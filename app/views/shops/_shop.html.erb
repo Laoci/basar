@@ -1,0 +1,17 @@
+<div class="col-3">
+  <div class="card-shop">
+    <img src="https://source.unsplash.com/1600x900/?shopfront" />
+    <div class="card-shop-infos">
+      <div class="review">
+          <h2><%= shop.name %></h2>
+          <p><%= shop.address %> - <%= shop.phone_number %></p>
+          <%= link_to "reviews", new_shop_review_path(shop) %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-9">
+  <div class="card-product-container d-flex">
+    <%= render shop.items %>
+  </div>
+</div>
