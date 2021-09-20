@@ -31,3 +31,7 @@ document.addEventListener('turbolinks:load', () => {
   showCart();
   // deleteItem();
 });
+
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
