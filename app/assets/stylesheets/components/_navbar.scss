@@ -1,14 +1,19 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height: 88px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 50%;
+.navbar-lewagon .navbar-brand p {
+  font-size: 72px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  font-stretch: ultra-expanded;
+  color: rgb(74, 174, 52);
 }
 
 .navbar-lewagon .nav-link {

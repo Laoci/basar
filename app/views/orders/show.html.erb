@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row py-3">
+    <div class="col-12">
+      <h1>Your purchase is successful</h1>
+      <p>Order <strong>No. <%= @order.id %></strong>
+      <p>Total amount: <strong><%= humanized_money_with_symbol(@order.amount) %></strong></p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.items.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td><%= 0 %></td>
+              <td><%= humanized_money_with_symbol(item.price) %></td>
+            </tr>
+          <% end %>
+        <tbody>
+      </table>
+    <%= link_to "Back to homepage", root_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
