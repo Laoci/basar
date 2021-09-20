@@ -2,21 +2,23 @@
 
 <div class="col-3">
   <div class="card-shop">
-    <img src="https://source.unsplash.com/1600x900/?shopfront" />
+    <img src="https://source.unsplash.com/800x450/?<%=shop.name%>,shopfront" />
     <div class="card-shop-infos">
       <div class="review">
           <div>
           <h2><%= shop.name %></h2>
+          <p>Shop Rating: <%= shop.average_rating.round(1) %></p>
+          <br>
           <p>Items found: <%= shop.items.count %></p>
           </div>
           <p>Shop address: <%= shop.address %></p>
           <p>Phone number: <%= shop.phone_number %></p>
-          <%= link_to "Add a review", new_shop_review_path(shop) %>
+          <%= link_to "reviews", new_shop_review_path(shop) %>
       </div>
     </div>
   </div>
 </div>
-<div class="col-9">
+<div class="col-9 style='width: 18rem'">
   <div class="card-product-container d-flex">
     <%= render shop.items %>
   </div>

@@ -17,4 +17,9 @@ class Shop < ApplicationRecord
 
   # Photo must be present
   validates :photo, presence: true
+
+
+  def average_rating
+    self.reviews.average(:rating).to_f
+  end
 end
