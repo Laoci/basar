@@ -7,8 +7,8 @@ class CartsController < ApplicationController
     if raw_data.empty?
       @cart_objects = []
     else
-      data = JSON.parse(data)
-        cart_object = JSON.parse(raw_data)
+      data = JSON.parse(raw_data)
+        cart_object = JSON.parse(data)
         # [{"itemId"=>"5", "itemCount"=>"5"}]
         @cart_objects = cart_object.map do |cart_item|
           item = Item.find(cart_item['itemId'])
