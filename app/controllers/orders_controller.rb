@@ -7,14 +7,14 @@ class OrdersController < ApplicationController
 
   def create
     # get total amount of the order
-
     amount = 0
     JSON.parse(params[:cart_objects]).each do |item_hash|
-      amount += item_hash["item_price"].to_f * item_hash["item_count"].to_i
+      item = Item.find(item_hash["item_id"])
+      amount += item.price_cents * item_hash["item_count"].to_i
     end
     # create a new order instance
     @mapping = {}
-    @order = Order.create!(state: 'pending', user: current_user, amount_cents: amount * 100)
+    @order = Order.create!(state: 'pending', user: current_user, amount_cents: amount)
     JSON.parse(params[:cart_objects]).each do |item_hash|
       item = Item.find(item_hash["item_id"])
       if item
@@ -30,7 +30,8 @@ class OrdersController < ApplicationController
       cancel_url: order_url(@order)
     )
     # update the order instance
-    @order.update(checkout_session_id: session.id)
+    @order.update(checkout_session_id: session.id, detail: JSON.generate(@mapping))
+
     redirect_to session.url
   end
 end
